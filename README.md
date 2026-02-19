@@ -1,8 +1,8 @@
 # COMP3133 Assignment 1 – Employee Management System
 
-**Student ID:** 101515982  
-**Course:** COMP3133 – Full Stack Development II  
-**Submission Deadline:** Sunday, 22nd Feb 2026, 11:59 PM
+**Student Name:** Gozde E Baran
+**Student ID:** 101515982
+**Course:** COMP3133 – Full Stack Development II
 
 ---
 
