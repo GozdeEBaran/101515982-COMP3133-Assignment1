@@ -48,3 +48,17 @@ A backend **Employee Management System** built with **Node.js**, **Express**, **
 ```
 
 ---
+
+## Sample Test User
+
+Use these credentials to test the **login** query:
+
+| Field    | Value                    |
+| -------- | ------------------------ |
+| Username | `testuser`               |
+| Email    | `testuser@comp3133.com`  |
+| Password | `Test1234!`              |
+
+Create this user first with the **signup** mutation if it does not exist yet.
+
+---
