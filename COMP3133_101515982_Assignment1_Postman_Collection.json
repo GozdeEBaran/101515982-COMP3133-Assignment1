@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "COMP3133 Assignment 1 - Employee Management System",
+    "description": "GraphQL API - Employee Management System\nStudent ID: 101515982",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "employee_id",
+      "value": "PASTE_EMPLOYEE_ID_AFTER_ADD_EMPLOYEE"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"mutation { signup(username: \\\"testuser\\\", email: \\\"testuser@comp3133.com\\\", password: \\\"Test1234!\\\") { _id username email created_at } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "2. Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"query { login(usernameOrEmail: \\\"testuser\\\", password: \\\"Test1234!\\\") { message user { _id username email } } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "3. Get All Employees",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"query { getAllEmployees { _id first_name last_name email gender designation salary date_of_joining department employee_photo } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "4. Add Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"mutation { addEmployee(first_name: \\\"John\\\", last_name: \\\"Doe\\\", email: \\\"john.doe@company.com\\\", gender: \\\"Male\\\", designation: \\\"Software Engineer\\\", salary: 5000, date_of_joining: \\\"2024-01-15\\\", department: \\\"Engineering\\\") { _id first_name last_name email designation salary department } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "5. Search Employee By ID",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"query { searchEmployeeById(eid: \\\"{{employee_id}}\\\") { _id first_name last_name email designation salary department } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "6. Update Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"mutation { updateEmployee(eid: \\\"{{employee_id}}\\\", salary: 7000, designation: \\\"Senior Software Engineer\\\") { _id first_name last_name designation salary } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "7. Search By Designation or Department",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"query { searchEmployeeByDesignationOrDepartment(department: \\\"Engineering\\\") { _id first_name last_name designation department } }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    },
+    {
+      "name": "8. Delete Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"mutation { deleteEmployee(eid: \\\"{{employee_id}}\\\") }\"\n}"
+        },
+        "url": "http://localhost:4000/graphql"
+      }
+    }
+  ]
+}
